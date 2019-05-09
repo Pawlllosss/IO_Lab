@@ -1,6 +1,6 @@
 package io.lab.unittests.junitlab.register;
 
-import io.lab.unittests.junitlab.student.Student;
+import io.lab.unittests.junitlab.student.entity.Student;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;

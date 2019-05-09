@@ -1,4 +1,4 @@
-package io.lab.unittests.junitlab.student;
+package io.lab.unittests.junitlab.student.entity;
 
 import io.lab.unittests.junitlab.student.exception.StudentIncorrectStateException;
 

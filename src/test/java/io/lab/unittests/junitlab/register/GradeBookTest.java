@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import io.lab.unittests.junitlab.student.Student;
-import io.lab.unittests.junitlab.student.StudentBuilder;
+import io.lab.unittests.junitlab.student.entity.Student;
+import io.lab.unittests.junitlab.student.entity.StudentBuilder;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
