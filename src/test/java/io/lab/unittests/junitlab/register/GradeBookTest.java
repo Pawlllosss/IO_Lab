@@ -1,42 +1,71 @@
 package io.lab.unittests.junitlab.register;
 
-import io.lab.unittests.junitlab.student.Student;
-import io.lab.unittests.junitlab.student.StudentBuilder;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import io.lab.unittests.junitlab.student.Student;
+import io.lab.unittests.junitlab.student.StudentBuilder;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 
 public class GradeBookTest {
     private GradeBook gradeBook;
+    private Student student;
     
     @BeforeEach
     public void setUp() {
-        System.out.println("init");
-        Student student = new StudentBuilder()
+        student = new StudentBuilder()
                 .firstName("Stefan")
                 .lastName("Sztos")
                 .birthYear(2009)
-                .grade(4)
+                .year(4)
                 .build();
-        
-        gradeBook = new GradeBook(student);
     }
+    
+    @Nested
+    @DisplayName("Tests for method getMinGrade")
+    class TestsOfMethodGetMinGrade {
+        @Test
+        public void shouldReturn1WhenGettingMinGradeWithProvidedValues() {
+            List<Integer> grades = new LinkedList<Integer>(Arrays.asList(1, 5, 3));
+            gradeBook = new GradeBook(student, grades);
+            
+            int expected = 1;
+            assertEquals(expected, gradeBook.getMinGrade());
+        }
+        
+        @Test
+        public void shouldThrowNoSuchElementExceptionWhenGettingMinGradeWithoutGrades() {
+            gradeBook = new GradeBook(student);
 
+            assertThrows(NoSuchElementException.class,
+                    () -> gradeBook.getMinGrade());
+        }
+    }
+    
     @Test
-    public void testShouldNotFailWhenAddingCorrectGrade() {
-        System.out.println("Test");
+    public void shouldPassWhenAddingCorrectGrade() {
+        gradeBook = new GradeBook(student);
+        
         gradeBook.addGrade(1);
         gradeBook.addGrade(6);
     }
     
     @Test
-    public void testShouldThrowIllegalStateExceptionWhenAddingIncorrectGrade() {
-        assertThrows(IllegalStateException.class,
+    public void shouldThrowIllegalStateExceptionWhenAddingIncorrectGrade() {
+        gradeBook = new GradeBook(student);
+        
+        assertThrows(IllegalArgumentException.class,
                 () -> gradeBook.addGrade(0));
         
-        assertThrows(IllegalStateException.class,
+        assertThrows(IllegalArgumentException.class,
                 () -> gradeBook.addGrade(7));
     }
     

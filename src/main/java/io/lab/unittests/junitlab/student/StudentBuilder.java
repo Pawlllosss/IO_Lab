@@ -4,12 +4,12 @@ public class StudentBuilder {
     private String firstName;
     private String lastName;
     private int birthYear;
-    private int grade;
+    private int year;
 
     public Student build() {
-        Student student = new Student(firstName, lastName, birthYear, grade);
+        Student student = new Student(firstName, lastName, birthYear, year);
         
-        StudentValidator.validateGrade(student);
+        StudentValidator.validateYear(student);
         StudentValidator.validateFirstName(student);
         StudentValidator.validateLastName(student);
         
@@ -31,8 +31,8 @@ public class StudentBuilder {
         return this;
     }
 
-    public StudentBuilder grade(int grade) {
-        this.grade = grade;
+    public StudentBuilder year(int year) {
+        this.year = year;
         return this;
     }
 }

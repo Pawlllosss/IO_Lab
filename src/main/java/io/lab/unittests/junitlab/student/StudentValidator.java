@@ -4,8 +4,8 @@ import io.lab.unittests.junitlab.student.exception.StudentIncorrectStateExceptio
 
 
 public class StudentValidator {
-    public static void validateGrade(Student student) {
-        if(student.getGrade() < 1) {
+    public static void validateYear(Student student) {
+        if(student.getYear() < 1) {
             throw new StudentIncorrectStateException();
         }
     }

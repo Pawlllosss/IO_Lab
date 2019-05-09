@@ -4,13 +4,13 @@ public class Student {
     private String firstName;
     private String lastName;
     private int birthYear;
-    private int grade;
+    private int year;
 
-    Student(String firstName, String lastName, int birthYear, int grade) {
+    Student(String firstName, String lastName, int birthYear, int year) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthYear = birthYear;
-        this.grade = grade;
+        this.year = year;
     }
 
     public String getFirstName() {
@@ -25,7 +25,7 @@ public class Student {
         return birthYear;
     }
 
-    public int getGrade() {
-        return grade;
+    public int getYear() {
+        return year;
     }
 }
