@@ -35,6 +35,7 @@ public class StudentServiceMockTest {
     
     @Test
     public void shouldReturnNoStudentsWhenDatabaseEmpty() {
+       mockStudentRepositoryWithEmptyList();
        studentService = new StudentService(studentRepositoryMock);
         
        int expectedSize = 0;

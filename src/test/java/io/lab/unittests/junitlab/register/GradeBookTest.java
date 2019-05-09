@@ -62,7 +62,7 @@ public class GradeBookTest {
     @Disabled
     @Test
     public void shouldThrowIllegalStateExceptionWhenAddingIncorrectGrade() {
-        //TODO: modify addGrade method so test will pass
+        //TODO: modify addGrade method so test will pass and remove Disabled annotation
         gradeBook = new GradeBook(student);
         
         assertThrows(IllegalArgumentException.class,
