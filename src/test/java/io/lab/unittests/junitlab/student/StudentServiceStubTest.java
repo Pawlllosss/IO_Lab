@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 
-public class StudentServiceTest {
+public class StudentServiceStubTest {
     StudentService studentService;
     
     @Test
